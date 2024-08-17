@@ -20,7 +20,6 @@ const productController = {
     
             const products = await Product.find(query)
                 .populate("category")
-                // .populate("brand")
                 .sort({ createdAt: -1 })
                 .skip(skip)
                 .limit(limit)
@@ -47,7 +46,6 @@ const productController = {
         try {
             const product = await Product.findOne({ slug: req.params.slug })
                 .populate("category")
-                // .populate("brand")
                 .exec();
             res.status(200).json({
                 status: "success",
