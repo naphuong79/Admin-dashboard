@@ -62,7 +62,6 @@ const productController = {
         try {
             const product = await Product.findById(req.params.id)
                 .populate("category")
-                // .populate("brand")
                 .exec();
             res.status(200).json({
                 status: "success",
